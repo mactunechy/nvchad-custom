@@ -14,6 +14,8 @@ local plugins = {
         "prettierd",
         "tailwindcss-language-server",
         "typescript-language-server",
+        "prisma-language-server",
+        "solargraph",
       },
     },
   },
@@ -40,9 +42,14 @@ local plugins = {
         "javascript",
         "typescript",
         "tsx",
+        "ruby"
       }
       return opts
     end,
+  },
+  {
+    "prisma/vim-prisma",
+    ft = { "prisma"},
   }
 }
 return plugins
