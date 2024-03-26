@@ -3,7 +3,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
 
-local servers = {"tsserver", "tailwindcss", "eslint", "prismals", "rubocop"}
+local servers = {"tsserver", "tailwindcss", "eslint", "prismals", "solargraph"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
