@@ -1,4 +1,6 @@
 local plugins = {
+  { "prisma/vim-prisma", ft = { "prisma" } },
+  { "tpope/vim-rails",   ft = { "ruby" } },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -16,6 +18,7 @@ local plugins = {
         "typescript-language-server",
         "prisma-language-server",
         "solargraph",
+        "rubocop"
       },
     },
   },
@@ -28,7 +31,7 @@ local plugins = {
   },
   {
     "windwp/nvim-ts-autotag",
-    ft = {"javascript", "javascriptreact", "typescript", "typescriptreact"},
+    ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     config = function()
       require("nvim-ts-autotag").setup()
     end,
@@ -48,8 +51,37 @@ local plugins = {
     end,
   },
   {
-    "prisma/vim-prisma",
-    ft = { "prisma"},
+    "nathom/filetype.nvim",
+    lazy = false,
+    config = function()
+      require("filetype").setup({
+        overrides = {
+          extensions = {
+            slim = "slim"
+          }
+        }
+      })
+    end
+  },
+  {
+    "slim-template/vim-slim",
+    ft = "slim",
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    }
   }
 }
 return plugins
