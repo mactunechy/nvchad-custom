@@ -1,6 +1,7 @@
 local plugins = {
   { "prisma/vim-prisma", ft = { "prisma" } },
   { "tpope/vim-rails",   ft = { "ruby" } },
+  {"github/copilot.vim", lazy = false },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -82,6 +83,31 @@ local plugins = {
     keys = {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
     }
-  }
+  },
+  {
+    "rmagatti/auto-session",
+    lazy = false,
+    config = function ()
+      require("auto-session").setup({
+        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+        session_lens = {
+          buftypes_to_ignore = {}, -- list of buffer types what should not be deleted from current session
+          load_on_setup = true,
+          theme_conf = { border = true },
+          previewer = false,
+        },
+      })
+      vim.keymap.set("n", "<leader>as", require("auto-session.session-lens").search_session, {
+        noremap = true,
+      })
+    end
+  },
+  {
+    "almo7aya/openingh.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>og", "<cmd>OpenInGHFileLines<cr>", desc = "Open in Github" },
+    },
+  },
 }
 return plugins
