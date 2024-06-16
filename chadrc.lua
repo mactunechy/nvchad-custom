@@ -1,6 +1,6 @@
 ---@type ChadrcConfig
 local M = {}
-M.ui = {theme = 'one_light'}
+M.ui = {theme = 'catppuccin'}
 M.plugins = "custom.plugins"
 
 

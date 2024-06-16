@@ -1,4 +1,5 @@
 local plugins = {
+  {'watzon/vim-edge-template', ft= { 'edge' } },
   { "prisma/vim-prisma", ft = { "prisma" } },
   { "tpope/vim-rails",   ft = { "ruby" } },
   { "preservim/vimux",   event = 'VeryLazy' }, -- send test command in tmux pane
@@ -144,7 +145,8 @@ local plugins = {
       require("filetype").setup({
         overrides = {
           extensions = {
-            slim = "slim"
+            slim = "slim",
+            edge = "edge"
           }
         }
       })
